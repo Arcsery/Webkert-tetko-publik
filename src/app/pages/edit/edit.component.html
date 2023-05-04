@@ -1,0 +1,66 @@
+<div>
+  <div class="user-data-container">
+    <h2>Personal data</h2>
+    <table>
+      <tr>
+        <td>Name:</td>
+        <td >{{Guest?.name || Artist?.name}}</td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td>{{Guest?.email || Artist?.email}}</td>
+      </tr>
+      <tr>
+        <td>Phone number:</td>
+        <td>{{Guest?.phoneNumber || Artist?.phoneNumber}}</td>
+      </tr>
+      <tr>
+        <td><button mat-flat-button color="primary" (click)="showEditForm = true">Edit details</button></td>
+        <td></td>
+      </tr>
+    </table>
+    
+
+    <h2>Lefoglalt időpontok</h2>
+    <table>
+      <tr>
+        <th>name</th>
+        <th>phone number</th>
+        <th>Email</th>
+        <th>Date</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let appointment of appointments; let i = index">
+        <td>{{appointment.name}}</td>
+        <td>{{appointment.phoneNumber}}</td>
+        <td>{{appointment.email}}</td>
+        <td>{{appointment.date.toLocaleString('hu-HU', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })}}</td>
+        <td>
+          <button mat-flat-button color="warn" (click)="delete(appointment)">Delete</button>
+        </td>
+      </tr>
+    </table>
+    <div *ngIf="role == 'artist' ">
+      <label for="date">New date:</label>
+      <input type="date" name="date" [formControl]="date" [min]="minDate">
+      <label for="time">Time:</label>
+      <input type="time" name="time" [formControl]="time">
+    
+      <button mat-flat-button color="primary" (click)="addDate()">Add new date</button>
+    </div>
+  </div>
+
+  <div class="booking-form-overlay" *ngIf="showEditForm">
+    <div class="booking-form-container">
+      <h2>Edit Details</h2>
+      <label>Username</label>
+      <input type="text" placeholder="{{Guest?.name || Artist?.name}}" [formControl]="userName">
+      <label>Phone number</label>
+      <input type="text" placeholder="{{Guest?.phoneNumber || Artist?.phoneNumber}}" [formControl]="phoneNumber">
+      <label *ngIf="role === 'artist'" >Bio</label>
+      <textarea [formControl]="bio" *ngIf="role === 'artist'"cols="30" rows="10">{{Artist?.bio}}"</textarea>
+      <button (click)="editDetails()" class="save-button">Save</button>
+      <button class="close-button" (click)="showEditForm = false">Close</button>
+    </div>
+  </div>
+</div>

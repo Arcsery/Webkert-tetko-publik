@@ -1,0 +1,52 @@
+<div class="container overlay">
+  <h2 class="tattoo-artists-title">{{artist?.name}}</h2>
+  <mat-card>
+    <div *ngIf="artistId === loggedInUser?.uid">
+    <img class="tattoo-artists-img" mat-card-image [src]="loadImage || 'https://via.placeholder.com/450x350'"(click)="fileInput.click()">
+    <input type="file" style="display:none" #fileInput (change)="onFileSelected($event)">
+  </div>
+
+  <div *ngIf="artistId != loggedInUser?.uid">
+    <img class="tattoo-artists-img" mat-card-image src={{loadImage}} alt="{{artist?.name}}">
+  </div>
+    <mat-card-content>
+      <p>{{artist?.bio}}</p>
+      <h2>Reference work</h2>
+      <div class="gallery">
+        <div *ngIf="artistId === loggedInUser?.uid" class="gallery">
+            <img class="referencePicture" mat-card-image [src]="artist?.Reference0 || 'https://via.placeholder.com/450x450'" (click)="firstFileInput.click()" />
+            <input type="file" style="display: none" #firstFileInput (change)="onFirstSlotFileSelected($event)" />
+            <img class="referencePicture" mat-card-image [src]="artist?.Reference1 || 'https://via.placeholder.com/450x450'" (click)="secondFileInput.click()" />
+            <input type="file" style="display: none" #secondFileInput (change)="onSecondSlotFileSelected($event)" />
+            <img class="referencePicture" mat-card-image [src]="artist?.Reference2 || 'https://via.placeholder.com/450x450'" (click)="thirdFileInput.click()" />
+            <input type="file" style="display: none" #thirdFileInput (change)="onThirdSlotFileSelected($event)" />
+        </div>
+
+        <div *ngIf="artistId !== loggedInUser?.uid" class="gallery">
+          <img class="referencePicture" mat-card-image [src]="artist?.Reference0 || 'https://via.placeholder.com/450x450'" />
+          <img class="referencePicture" mat-card-image [src]="artist?.Reference1 || 'https://via.placeholder.com/450x450'" />
+          <img class="referencePicture" mat-card-image [src]="artist?.Reference2 || 'https://via.placeholder.com/450x450'" />
+
+      </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions *ngIf="loggedInUser?.uid != null">
+      <button (click)="showBookingForm = true">Book an appointment</button>
+    </mat-card-actions>
+    <mat-card-actions *ngIf="loggedInUser?.uid === null">
+      <h2>Sign in to book an appointment</h2>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+
+  <div class="booking-form-overlay" *ngIf="showBookingForm">
+    <div class="booking-form-container">
+      <h2>Book an appointment</h2>
+        <mat-select [(ngModel)] = "selected" placeholder="Chose the date">
+          <mat-option *ngFor="let date of appointments" [value]="date">{{date?.date.toLocaleString('hu-HU', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })}}</mat-option>
+        </mat-select>
+        <button (click)="addDate()" type="submit">Foglalás</button>
+      <button class="close-button" (click)="showBookingForm = false">Bezárás</button>
+    </div>
+  </div>

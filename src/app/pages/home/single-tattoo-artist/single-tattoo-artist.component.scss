@@ -1,0 +1,123 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tattoo-artists-title {
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+
+.tattoo-artists-img {
+  width: 750px;
+  height: 350px;
+  object-fit: cover;
+}
+
+.booking-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Szürkíti a mögötte lévő tartalmat */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.booking-form-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  max-width: 80%; /* Választható, hogy milyen széles legyen az űrlap */
+}
+.booking-form-container h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.close-button {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+
+mat-card {
+  max-width: 800px;
+  width: 100%;
+  margin: 2rem;
+  padding: 1rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+mat-card-content {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.gallery {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.gallery img {
+  width: 30%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+button {
+  background-color: #000;
+  color: #fff;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.tattoo-artists-img:hover {
+  cursor: pointer;
+  filter: brightness(80%);
+}
+
+.referencePicture{
+  margin-right: 10px;
+  width: 450px;
+  height: 450px;
+  object-fit: cover;
+}
+
+.referencePicture:hover {
+  cursor: pointer;
+  filter: brightness(80%);
+  transition: filter 0.3s ease-in-out;
+}

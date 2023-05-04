@@ -1,0 +1,45 @@
+<div class="register-form-flex">
+    <mat-card>
+        <mat-card-title>
+            Register
+        </mat-card-title>
+        <mat-card-content>
+            <mat-form-field>
+                <input type="text" matInput placeholder="Name" [formControl]="name"/>
+            </mat-form-field>
+            <br />
+            <mat-form-field>
+                <input type="text" matInput placeholder="Phone Number" [formControl]="phoneNumber"/>
+            </mat-form-field>
+            <br />
+            <mat-form-field>
+                <input matInput placeholder="Email" type="email" [formControl]="email">
+            </mat-form-field>
+            <br />
+            <mat-form-field>
+                <input type="password" matInput placeholder="Password" [formControl]="password" />
+            </mat-form-field>
+            <br />
+            <div class="radio-button-container">
+                <mat-radio-group [formControl]="role">
+                    <mat-radio-button value="artist">I'm an artist</mat-radio-button>
+                    <mat-radio-button value="guest">I'm a guest</mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <div class="button-flex-container">
+                <button mat-raised-button color="primary" (click)="register()">Register</button>
+            </div>
+            <div class="login-flex-container">
+                <a href="/login">Login</a>
+            </div>
+        </mat-card-actions>
+        <div class="errorcontainer" *ngIf="errorMessage != ''">
+            <mat-card-content>
+                {{errorMessage  }}
+            </mat-card-content>
+        </div>
+       
+    </mat-card>
+</div>

@@ -1,0 +1,29 @@
+<div class="login-form-flex">
+    <mat-card >
+      <mat-card-title>
+        Login
+      </mat-card-title>
+      <mat-card-content>
+        <mat-form-field>
+          <input matInput placeholder="Email" type="email" [formControl]="email">
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+          <input type="password" matInput placeholder="Password" [formControl]="password"/>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <div class="button-flex-container">
+          <button mat-raised-button color ="primary" (click)="login()">Login</button>
+        </div>
+        <div class="register-flex-container">
+          <a href="/register">Register</a>
+        </div>
+      </mat-card-actions>
+      <div class="errorcontainer">
+        <mat-card-content *ngIf="errorMessage != ''">
+            {{errorMessage}}
+        </mat-card-content>
+    </div>
+    </mat-card>
+  </div>

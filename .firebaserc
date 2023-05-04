@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tetko-5255e": {
+      "hosting": {
+        "tetko-app": [
+          "tetko-webkert"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tetko-5255e"
+  }
+}

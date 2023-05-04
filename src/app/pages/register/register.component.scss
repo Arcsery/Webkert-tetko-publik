@@ -1,0 +1,56 @@
+.register-form-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .button-flex-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .login-flex-container{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  mat-form-field{
+    margin-top: 30px;
+
+  }
+  
+mat-card-title{
+    margin: auto;
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+mat-card-content{
+    padding: 35px 35px 0px 35px;
+}
+ 
+input{
+    padding: 0px 15px 0px 15px;
+}
+
+.radio-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  }
+  
+  mat-radio-button {
+  margin-right: 20px;
+  }
+
+.errorcontainer{
+  display: flex;
+  justify-content: center;
+  color: red;
+}
