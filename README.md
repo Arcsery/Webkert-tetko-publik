@@ -14,4 +14,4 @@ Ha valami probléma vagy kérdés lenne akkor dc-n tudsz elérni: Archer#2718
 
 ## Localhost
 
-lokálisan nyílván nem fog működni a cucc mert kiszedtem az enviroments.ts-ből a firebases cuccokkat szóval csak az url-tudod tesztelni. 
+Ha lokálisan futtatod akkor csak egy fehér képernyő lesz.  Nem fog működni a cucc mert kiszedtem az enviroments.ts-ből a firebases cuccokkat szóval csak a kitelepített url-n tudod tesztelni. 
